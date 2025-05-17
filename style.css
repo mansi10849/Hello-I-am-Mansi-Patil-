@@ -1,56 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f8f9fa;
-  color: #333;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-header {
-  background: #222;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-header span {
-  color: #61dafb;
-}
-
-section {
-  padding: 30px 20px;
-  background: #fff;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.skills ul,
-.education ul {
-  list-style-type: none;
-  margin-top: 10px;
-}
-
-.skills li,
-.education li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px 0;
+  border: 4px solid #61dafb;
 }
