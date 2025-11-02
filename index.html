@@ -1,9 +1,69 @@
-<section class="about">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake-News Detector v3</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/recharts@2.12/umd/Recharts.min.js" defer></script>
+</head>
+<body>
   <div class="container">
-    <h2>About Me</h2>
-    <img src="WhatsApp Image 2025-05-17 at 08.55.44.jpg" alt="Mansi Patil" class="profile-img" />
-    <p>
-      I am Mansi Patil, a web developer with a strong foundation in computer applications and IT...
-    </p>
+    <header class="header">
+      <div>
+        <h1>Fake News Detector</h1>
+        <p class="muted">Paste an article, drop a text file, or provide a URL.</p>
+      </div>
+      <div class="controls-top">
+        <span id="api-endpoint-display" class="muted api-note">/demo</span>
+        <button id="theme-toggle" class="btn icon" title="Toggle dark mode" aria-label="Toggle dark mode">🌗</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <!-- ===== INPUT / RESULT ===== -->
+      <section class="card large">
+        <form id="predict-form" novalidate>
+          <label for="news-text" class="label">Article text</label>
+          <textarea id="news-text" rows="10" placeholder="Paste news text here…" required aria-describedby="news-desc"></textarea>
+          <div id="news-desc" class="visually-hidden">Paste or type the news article text to analyze.</div>
+
+          <div id="drop-zone" class="drop-zone" tabindex="0" aria-label="Drop text file here or browse">
+            <input id="file-input" type="file" accept=".txt,.md" />
+            <span>📁 Drop .txt here or <strong>browse</strong></span>
+          </div>
+
+          <div class="controls">
+            <button id="predict-btn" class="btn primary" type="submit">Predict</button>
+            <button id="clear-btn" class="btn" type="button">Clear</button>
+          </div>
+          <div id="error" class="error" aria-live="polite"></div>
+          <div id="loading-spinner" class="hidden" aria-live="polite">⏳ Predicting...</div>
+          <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+        </form>
+
+        <div id="result-card" class="result-card hidden">
+          <h2>Result</h2>
+          <div class="badge" id="result-badge"></div>
+          <p>Confidence <span id="result-confidence"></span></p>
+          <div id="sparkline" class="sparkline"></div>
+          <button id="copy-result" class="btn small">Copy</button>
+        </div>
+      </section>
+
+      <!-- ===== HISTORY ===== -->
+      <aside class="card small">
+        <div class="aside-header">
+          <h3>History</h3>
+          <button id="clear-history" class="btn small">Clear</button>
+        </div>
+        <ul id="history-list" class="history-list"></ul>
+      </aside>
+    </main>
+
+    <footer class="footer muted">Frontend demo – set <code>API_ENDPOINT</code> in script.js to connect your backend.</footer>
   </div>
-</section>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
